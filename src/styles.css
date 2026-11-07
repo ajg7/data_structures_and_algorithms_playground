@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Rendered lab markdown. */
+.lab-prose h1 { @apply mb-4 text-3xl font-bold; }
+.lab-prose h2 { @apply mt-8 mb-3 text-xl font-semibold; }
+.lab-prose h3 { @apply mt-6 mb-2 font-semibold; }
+.lab-prose p { @apply my-3 leading-7 text-zinc-300; }
+.lab-prose ul { @apply my-3 list-disc pl-6 text-zinc-300; }
+.lab-prose ol { @apply my-3 list-decimal pl-6 text-zinc-300; }
+.lab-prose li { @apply my-1; }
+.lab-prose code { @apply rounded bg-zinc-800 px-1 py-0.5 text-sm; }
+.lab-prose pre { @apply my-4 overflow-x-auto rounded bg-zinc-900 p-4; }
+.lab-prose pre code { @apply bg-transparent p-0; }
+.lab-prose a { @apply text-indigo-400 underline; }
+.lab-prose table { @apply my-4 w-full text-left text-sm; }
+.lab-prose th, .lab-prose td { @apply border-b border-zinc-800 py-1 pr-4; }
