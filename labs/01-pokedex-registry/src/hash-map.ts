@@ -4,8 +4,6 @@
 // Do not use Map, Set, or plain objects as dictionaries.
 // ============================================================
 
-import { options } from "marked";
-
 export type HashMapOptions<K> = {
   /** Starting number of buckets. Default 8. */
   capacity?: number;
@@ -56,6 +54,7 @@ export class HashMap<K extends string | number, V> implements Iterable<[K, V]> {
     const bucketIdx = this.#hash(key) % this.#buckets.length;
     this.#buckets[bucketIdx].push([key, value]);
     this.#size++;
+    if (this.#size / this.capacity > HashMap.LOAD_FACTOR) this.#resize();
     return this;
   }
 
@@ -87,6 +86,21 @@ export class HashMap<K extends string | number, V> implements Iterable<[K, V]> {
     }
 
     return undefined;
+  }
+
+  #resize() {
+    const oldBuckets = this.#buckets;
+    const newBuckets: Array<Array<[K, V]>> = Array.from(
+      { length: this.capacity * 2 },
+      () => [],
+    );
+    for (const bucket of oldBuckets) {
+      for (const pair of bucket) {
+        const bucketIdx = this.#hash(pair[0]) % newBuckets.length;
+        newBuckets[bucketIdx].push(pair);
+      }
+    }
+    this.#buckets = newBuckets;
   }
 
   [Symbol.iterator](): Iterator<[K, V]> {
