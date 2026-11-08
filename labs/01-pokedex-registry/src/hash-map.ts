@@ -103,7 +103,11 @@ export class HashMap<K extends string | number, V> implements Iterable<[K, V]> {
     this.#buckets = newBuckets;
   }
 
-  [Symbol.iterator](): Iterator<[K, V]> {
-    throw new Error("TODO [1.4]");
+  *[Symbol.iterator](): Iterator<[K, V]> {
+    for (const bucket of this.#buckets) {
+      for (const pair of bucket) {
+        yield [pair[0], pair[1]];
+      }
+    }
   }
 }
