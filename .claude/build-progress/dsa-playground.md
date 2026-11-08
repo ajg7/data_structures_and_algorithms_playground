@@ -4,8 +4,8 @@
 **Last touched:** 2026-11-07
 
 ## Phase 1 — Walking skeleton: run untrusted code safely  [in progress]
-- [>] 1.1 Start app renders a lab page from the filesystem — autopilot — built, checkpoint pending
-- [ ] 1.2 Run Tests button returns pass/fail per test
+- [x] 1.1 Start app renders a lab page from the filesystem — autopilot — built and merged (PR #1), checkpoint skipped (AJ moved on; not passed)
+- [>] 1.2 Run Tests button returns pass/fail per test — sidekick — in progress on `phase-1/milestone-1.2`
 - [ ] 1.3 An infinite loop becomes a timeout, not a hang
 - [ ] 1.4 Each run is an Attempt row, listed on the lab page
 
@@ -34,6 +34,7 @@
 ## Scaffolding written by Claude
 - Project init from `@tanstack/cli create` (router.tsx, tsconfig, tsr.config.json, .gitignore, .vscode) — phase 1
 - `vite.config.ts`, `vitest.config.ts`, `package.json`, `src/styles.css` — phase 1
+- `@tanstack/pacer@^0.23.1` dependency installed — phase 1, setup for 1.2
 
 ## Deviations from the plan
 - 1.1: dropped `@tanstack/react-devtools` / `devtools-vite` from the scaffold (pre-1.0, excluded by plan). Kept Router Devtools (1.x).
@@ -42,4 +43,5 @@
 
 ## Carryover
 - No `solutions` branch yet. Create it when the first reference solution is written.
-- Nothing committed yet.
+- Lab 01 `HashMap` ([1.1]–[1.4], 14/14 tests) written by AJ and merged into `main` via PR #1 (fd4151a). Conflicts with the CLAUDE.md rule "main = starter only". AJ to decide: amend the rule, or move the solution to `solutions` and restore the TODOs on main.
+- Lab 01 grading waits for 2.1 (concepts.md, rubric.md, quiz, LC stubs).
