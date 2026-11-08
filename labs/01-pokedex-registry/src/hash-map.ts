@@ -4,59 +4,92 @@
 // Do not use Map, Set, or plain objects as dictionaries.
 // ============================================================
 
+import { options } from "marked";
+
 export type HashMapOptions<K> = {
   /** Starting number of buckets. Default 8. */
-  capacity?: number
+  capacity?: number;
   /** Override the hash function (tests use this to force collisions). */
-  hash?: (key: K) => number
-}
+  hash?: (key: K) => number;
+};
 
 export class HashMap<K extends string | number, V> implements Iterable<[K, V]> {
-  static readonly LOAD_FACTOR = 0.75
+  static readonly LOAD_FACTOR = 0.75;
+  #buckets: Array<Array<[K, V]>>;
+  #hash: (key: K) => number;
+  #size: number;
 
   constructor(options: HashMapOptions<K> = {}) {
-    void options
-    throw new Error('TODO [1.1]: set up the buckets')
+    this.#buckets = Array.from({ length: options.capacity ?? 8 }, () => []);
+    this.#hash = options.hash ?? ((key) => this.hash(key));
+    this.#size = 0;
   }
 
   /** Number of buckets currently allocated. */
   get capacity(): number {
-    throw new Error('TODO [1.3]')
+    return this.#buckets.length;
   }
 
   /** Number of key/value pairs stored. */
   get size(): number {
-    throw new Error('TODO [1.2]')
+    return this.#size;
   }
 
   /** Default hash: turn a string or number key into a non-negative integer. */
   hash(key: K): number {
-    void key
-    throw new Error('TODO [1.1]')
+    let total = 0;
+    const precursor = String(key);
+    for (const char of precursor) {
+      const charRep = char.charCodeAt(0);
+      total = (total * 31 + charRep) | 0;
+    }
+    return Math.abs(total);
   }
 
   set(key: K, value: V): this {
-    void key
-    void value
-    throw new Error('TODO [1.1]')
+    const pair = this.#find(key);
+    if (pair) {
+      pair[1] = value;
+      return this;
+    }
+
+    const bucketIdx = this.#hash(key) % this.#buckets.length;
+    this.#buckets[bucketIdx].push([key, value]);
+    this.#size++;
+    return this;
   }
 
   get(key: K): V | undefined {
-    void key
-    throw new Error('TODO [1.1]')
+    return this.#find(key)?.[1];
   }
 
   has(key: K): boolean {
-    void key
-    throw new Error('TODO [1.1]')
+    return !!this.#find(key);
   }
 
   delete(key: K): boolean {
-    void key
-    throw new Error('TODO [1.2]')
+    const bucketIdx = this.#hash(key) % this.#buckets.length;
+    const bucket = this.#buckets[bucketIdx];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket.splice(i, 1);
+        this.#size--;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  #find(key: K): [K, V] | undefined {
+    const bucketIdx = this.#hash(key) % this.#buckets.length;
+    for (const pair of this.#buckets[bucketIdx]) {
+      if (pair[0] === key) return pair;
+    }
+
+    return undefined;
   }
 
   [Symbol.iterator](): Iterator<[K, V]> {
-    throw new Error('TODO [1.4]')
+    throw new Error("TODO [1.4]");
   }
 }
