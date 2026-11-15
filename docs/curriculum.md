@@ -1,10 +1,10 @@
 # Curriculum Roadmap
 
-The full topic map. Concept order follows the roadmap.sh DSA roadmap, and problem lists
-follow the NeetCode 150 pattern buckets. The MVP (marked **MVP**) is planned in detail in
+The full topic map. Concept order follows the roadmap.sh DSA roadmap. The MVP (marked **MVP**) is planned in detail in
 `build-plan.md`. Everything else gets planned in batches once the lab format is proven.
-Every lab keeps the canonical topic name next to the themed one. LeetCode problems are
-linked by number and slug only: no copied statements, and local tests are our own.
+Every lab keeps the canonical topic name next to the themed one. Assessments are original:
+each lab ends in themed challenges solved with the structure you built, plus quizzes,
+explain-its and mock interviews. No LeetCode.
 
 Status: `MVP` = in build plan · `next` = candidate for the next batch · `later` = parked · `done`
 
@@ -15,7 +15,7 @@ Status: `MVP` = in build plan · `next` = candidate for the next batch · `later
 | Recursion and the call stack | Dungeon descent | recursive helpers, memo table | next |
 
 ## Data structures
-| Topic | Themed lab | Builds | NeetCode bucket | Status |
+| Topic | Themed lab | Builds | Patterns applied | Status |
 |---|---|---|---|---|
 | Arrays & hashing | 01 Pokédex Registry | `HashMap<K,V>` (chaining, resize) | Arrays & Hashing | MVP |
 | Deque / ring buffer | 02 Combo Meter | `Deque<T>` | Two Pointers, Sliding Window | MVP |
@@ -29,7 +29,7 @@ Status: `MVP` = in build plan · `next` = candidate for the next batch · `later
 | Segment tree / Fenwick | Damage log range queries | `SegmentTree`, `FenwickTree` | — | later |
 
 ## Algorithms and patterns
-| Topic | Themed lab | NeetCode bucket | Status |
+| Topic | Themed lab | Patterns applied | Status |
 |---|---|---|---|
 | Two pointers | 02 Combo Meter | Two Pointers | MVP |
 | Sliding window | 02 Combo Meter | Sliding Window | MVP |
@@ -48,9 +48,9 @@ Status: `MVP` = in build plan · `next` = candidate for the next batch · `later
 ## Interview practice (app features)
 | Feature | Status |
 |---|---|
-| Timed AI mock interview on any linked problem | MVP |
+| Timed AI mock interview on any lab challenge | MVP |
 | Explain-it rubric grading | MVP |
 | Per-pattern mastery + calibration dashboard | MVP |
-| Problem-variant generator | later |
+| Challenge-variant generator | later |
 | Spaced-repetition review queue | later |
 | In-browser timed drill editor | later |
