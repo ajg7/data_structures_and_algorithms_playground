@@ -11,7 +11,7 @@
 
 ## Phase 2 — Labs 01–02 in the final format  [next]
 - [>] 2.1 Lab 01 Pokédex Registry complete — AJ in progress. Claude wrote lab content 2026-11-15: concepts.md §1–§7, rubric.md, quiz.json (11 q), challenges.ts, 5 challenge stubs + tests, no-builtins guard, map-like + timing tests (all verified against throwaway answers, then deleted). AJ: src/map-like.ts, `implements MapLike`, challenges 01–05, checkpoint. Timing baseline: 4.4x for 4x keys (constant hash: ~22x)
-- [ ] 2.2 Lab 02 Combo Meter complete
+- [ ] 2.2 Lab 02 Fury Cutter Chain complete
 - [ ] 2.3 Challenge tracker
 
 ## Phase 3 — Mock interviewer v1  [not started]
@@ -20,14 +20,48 @@
 - [ ] 3.3 Interview timer and session record
 
 ## Phase 4 — Lab 03 and the step-through visualizer  [not started]
-- [ ] 4.1 Lab 03 Quest Log complete
+- [ ] 4.1 Lab 03 Bill's PC complete
 - [ ] 4.2 Worker plays back your generator safely
 - [ ] 4.3 Playback controls
 
 ## Phase 5 — Assessments that compound  [not started]
 - [ ] 5.1 Quizzes and explain-it grading
 - [ ] 5.2 Interviews resume after refresh and end with a scorecard
-- [ ] 5.3 Lab 04 Skill Tree and the mastery dashboard
+- [ ] 5.3 Lab 04 Evolution Tree and the mastery dashboard
+
+## Phase 6 — Recursion, searching, heaps and sorting  [not started]
+- [ ] 6.1 Lab 05 Mt. Moon Descent (Recursion)
+- [ ] 6.2 Lab 06 TM Case Lookup (Linear and Binary Search)
+- [ ] 6.3 Lab 07 Turn Order (Heap / Priority Queue)
+- [ ] 6.4 Lab 08 Box Sorter (Sorting)
+
+## Phase 7 — More structures  [not started]
+- [ ] 7.1 Lab 09 Pokédex Search (Trie)
+- [ ] 7.2 Lab 10 Poké Mart Stockroom (LFU and MFU Caches)
+- [ ] 7.3 Lab 11 Magnet Train (Skip List)
+- [ ] 7.4 Lab 12 Battle Tower Rankings (AVL Tree)
+- [ ] 7.5 Lab 13 PC Storage Index (B-Tree, 2-3, 2-3-4, K-ary)
+- [ ] 7.6 Lab 14 Hall of Fame Ledger (Red-Black Tree)
+- [ ] 7.7 Lab 15 Nearest Pokémon Center (K-D Tree)
+- [ ] 7.8 Lab 16 Damage Log (Segment Tree / Fenwick Tree)
+
+## Phase 8 — Graphs  [not started]
+- [ ] 8.1 Lab 17 Kanto Route Map (Graphs, BFS, DFS, Topological Sort)
+- [ ] 8.2 Lab 18 Link Cable Groups (Union-Find)
+- [ ] 8.3 Lab 19 Fly Network (Dijkstra, Bellman-Ford, A*)
+- [ ] 8.4 Lab 20 Power Plant Grid (Spanning Trees, Kruskal's, Prim's)
+- [ ] 8.5 Lab 21 Silph Co. Supply Lines (Ford-Fulkerson)
+
+## Phase 9 — Algorithm patterns and theory  [not started]
+- [ ] 9.1 Lab 22 Safari Zone Paths (Backtracking)
+- [ ] 9.2 Lab 23 Bag Space (Greedy, Huffman Coding)
+- [ ] 9.3 Lab 24 Gym Schedule (Intervals)
+- [ ] 9.4 Lab 25 EV Training Planner (1-D DP)
+- [ ] 9.5 Lab 26 Rock Tunnel Grid (2-D DP, Knapsack)
+- [ ] 9.6 Lab 27 Unown Decoder (String Search)
+- [ ] 9.7 Lab 28 Status Condition Flags (Bitwise Operators)
+- [ ] 9.8 Lab 29 Catch Rate Calculator (Math, Geometry, Probability, Combinatorics)
+- [ ] 9.9 Lab 30 Elite Four Gauntlet (Complexity Classes, quiz only)
 
 ## Scaffolding written by Claude
 - Project init from `@tanstack/cli create` (router.tsx, tsconfig, tsr.config.json, .gitignore, .vscode) — phase 1
@@ -43,6 +77,8 @@
 - 1.1: dev server on port 3100, because Docker Grafana from System Design Playground holds 3000.
 - 1.1: Start 1.169 server fns use `.validator()`, not `.inputValidator()`.
 - 2026-11-15: scope narrowed to DSA only. TanStack learning moves to a future separate playground. Cut old 4.4 (TanStack Store comparison) and old 5.1 (TanStack DB collection); old 5.2–5.4 renumbered 5.1–5.3. DB, Form, Table, Virtual and Store dropped from the stack. App milestones now have "Done when" instead of checkpoints. Claude writes all app code; AJ writes all DSA code and does the checkpoints.
+
+- 2026-11-15: MVP widened to the whole curriculum (AJ's call): 31 Pokémon-themed labs (00–30) covering the roadmap.sh Computer Science roadmap minus the sections AJ excluded. Labs 00, 02, 03, 04 renamed (Speed Stat Check, Fury Cutter Chain, Bill's PC, Evolution Tree). Lab-only Phases 6–9 added to the plan. Coverage table in `docs/curriculum.md`.
 
 ## Carryover
 - 10s limit: warm Lab 01 runs take 2.5–2.8s, but the first run after a cold dev-server start took 7.8s. Revisit if false timeouts appear (plan's open question).

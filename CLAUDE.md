@@ -1,8 +1,8 @@
 # DSA Playground
 
 A project-based learning repo for data structures, algorithms and coding-interview prep.
-Each lab builds one data structure or pattern in TypeScript, themed around gaming and nerd
-pop culture, then applies it in original themed challenges (our own problems, solved with
+Each lab builds one data structure or pattern in TypeScript, themed around Pokémon, then
+applies it in original themed challenges (our own problems, solved with
 the structure you built, against local tests). No LeetCode: the goal is understanding and
 applying DSA through projects, not grinding a problem list. A TanStack Start app wraps
 the labs. It runs tests safely, visualizes your
@@ -70,7 +70,7 @@ shows up only as the way the labs' data structures are written.
   "passed", the retry list and the interview timer are derived.
 - State ownership: server data goes through TanStack Query, client UI and playback state
   through Zustand, and forms stay plain React state.
-- Every lab uses themed names but keeps the canonical name alongside them
+- Every lab uses Pokémon-themed names but keeps the canonical name alongside them
   (e.g. "Pokédex Registry — Hash Map").
 
 ## Lab anatomy
@@ -91,15 +91,29 @@ shows up only as the way the labs' data structures are written.
 
 - `docs/build-plan.md`: phased build plan, architecture decisions, and the reference
   system design (Claude produced it at AJ's request). Work through it phase by phase.
-- `docs/curriculum.md`: the full topic roadmap beyond the MVP. Update a topic's status
-  there when it's planned or finished.
+- `docs/curriculum.md`: the full topic roadmap, all of it in the MVP, with a coverage
+  table against the roadmap.sh Computer Science roadmap. Update a topic's status there
+  when it's finished.
 
 ## MVP scope
 
-0. Big-O: Speedrun Splits (quiz only)
+The whole curriculum: 31 Pokémon-themed labs (00–30), listed in `docs/curriculum.md` and
+planned one milestone each in `docs/build-plan.md`. Lab numbers are the build order.
+Built alongside the app (Phases 1–5):
+0. Asymptotic Notation: Speed Stat Check (quiz only)
 1. Arrays & Hashing: Pokédex Registry (`HashMap<K,V>`)
-2. Two Pointers / Sliding Window: Combo Meter (`Deque<T>`)
-3. Stack / Queue / Linked List: Quest Log
-4. Trees / BST: Skill Tree
+2. Two Pointers / Sliding Window: Fury Cutter Chain (`Deque<T>`)
+3. Stack / Queue / Linked List: Bill's PC
+4. Trees / BST: Evolution Tree
+
+Lab-only (Phases 6–9): recursion, searching, heap, sorting (05–08); trie, LFU/MFU caches,
+skip list, AVL, B-tree, red-black, k-d tree, segment/Fenwick (09–16); graphs, union-find,
+shortest paths, MST with Kruskal's and Prim's, network flow (17–21); backtracking, greedy,
+intervals, 1-D and 2-D DP, string search, bits, math, complexity classes (22–30).
+
+Out of scope, by AJ's call: Pick a Language, Design Patterns, UML, System Design,
+Databases, Security, Networking, How Computers Work, Processes and Threads, Endianness,
+Floating Point, Character Encodings.
+
 Plus: safe test runner, step-through visualizer, quizzes, explain-it grading, AI mock
 interviewer, and a derived mastery dashboard.
