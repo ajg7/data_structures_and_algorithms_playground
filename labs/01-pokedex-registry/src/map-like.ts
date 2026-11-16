@@ -15,4 +15,11 @@
 // ============================================================
 
 // TODO(AJ): fill in the members.
-export interface MapLike<K, V> {}
+export interface MapLike<K, V> {
+  get: (k: K) => V | undefined;
+  set: (k: K, v: V) => this;
+  readonly size: number;
+  has: (k: K) => boolean;
+  delete: (k: K) => boolean;
+  [Symbol.iterator](): Iterator<[K, V]>;
+}
