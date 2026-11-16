@@ -4,6 +4,8 @@
 // Do not use Map, Set, or plain objects as dictionaries.
 // ============================================================
 
+import type { MapLike } from "./map-like";
+
 export type HashMapOptions<K> = {
   /** Starting number of buckets. Default 8. */
   capacity?: number;
@@ -11,7 +13,7 @@ export type HashMapOptions<K> = {
   hash?: (key: K) => number;
 };
 
-export class HashMap<K extends string | number, V> implements Iterable<[K, V]> {
+export class HashMap<K extends string | number, V> implements MapLike<K, V> {
   static readonly LOAD_FACTOR = 0.75;
   #buckets: Array<Array<[K, V]>>;
   #hash: (key: K) => number;

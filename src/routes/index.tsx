@@ -7,7 +7,7 @@ function Home() {
     <main className="mx-auto max-w-3xl p-8">
       <h1 className="text-3xl font-bold">DSA Playground</h1>
       <p className="mt-4 text-zinc-400">
-        Build the data structures yourself, then solve the linked LeetCode problems.
+        Build the data structures yourself, then apply them in themed challenges.
       </p>
       <Link
         to="/labs/$labId"

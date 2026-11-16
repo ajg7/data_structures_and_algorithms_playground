@@ -28,5 +28,28 @@ rehash every entry. Expose `capacity` so the tests can see it happen.
 ### [1.4] Walk the registry
 Make the map iterable: `for (const [name, entry] of dex)` yields every key/value pair.
 
-## Linked LeetCode problems
-Added in a later phase of the build plan: 217, 242, 1, 49, 347, 238, 36, 128.
+### [2.1] The map ADT and the challenges
+Read `concepts.md` first (§1–§7). Then, in this order:
+
+1. **`src/map-like.ts`**: write the `MapLike<K, V>` interface, then make your `HashMap`
+   declare `implements MapLike<K, V>` (§1). Check with `npx tsc --noEmit` and
+   `tests/map-like.test.ts`.
+2. **`challenges/01` → `05`**: each file's header comment is the spec. Every one imports
+   your `HashMap`; built-in `Map`/`Set` are blocked by a test.
+
+   | # | Challenge | Pattern | § |
+   |---|---|---|---|
+   | 01 | Shiny Duplicates | Seen-set | §6.1 |
+   | 02 | Unown Anagram Groups | Canonical key grouping | §6.2, §7 |
+   | 03 | Trade Pair Finder | Complement lookup | §6.3 |
+   | 04 | Most-Caught Species | Frequency counting (top-k) | §6.4 |
+   | 05 | Longest Pokédex-Number Streak | Membership for runs | §6.5 |
+
+3. **Checkpoint (break it deliberately):** make `hash()` return a constant. Before
+   running anything, write down which tests you expect to still pass and what happens
+   to the time complexity. Run the timing test once *before* the change too, so you
+   have a baseline. Run only these two files:
+   `npx vitest run labs/01-pokedex-registry/tests/hash-map.test.ts labs/01-pokedex-registry/tests/timing.test.ts --reporter=verbose`
+   and compare. Put `hash()` back afterwards.
+
+Run one challenge: `npx vitest labs/01-pokedex-registry/tests/challenges/01`

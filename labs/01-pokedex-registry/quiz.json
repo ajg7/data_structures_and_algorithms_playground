@@ -1,0 +1,133 @@
+{
+  "lab": "01-pokedex-registry",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which statement best describes the relationship between MapLike<K, V> and HashMap<K, V>?",
+      "choices": [
+        "MapLike is the abstract data type; HashMap is one implementation of it",
+        "MapLike is a faster version of HashMap",
+        "HashMap is the abstract data type; MapLike is one implementation of it",
+        "They are two names for the same thing"
+      ],
+      "answer": 0,
+      "explanation": "An interface states the contract. HashMap delivers it with buckets; TreeMap will deliver it with a BST.",
+      "source": "§1"
+    },
+    {
+      "id": "q2",
+      "prompt": "Why must a map's hash function be deterministic?",
+      "choices": [
+        "So that keys never collide",
+        "So that get looks in the same bucket that set used",
+        "So that the map iterates in insertion order",
+        "So that resizing is never needed"
+      ],
+      "answer": 1,
+      "explanation": "If the same key hashed differently on different calls, lookups would search the wrong bucket.",
+      "source": "§2"
+    },
+    {
+      "id": "q3",
+      "prompt": "Every key hashes to bucket 0. What is the cost of get on a map holding n entries?",
+      "choices": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+      "answer": 2,
+      "explanation": "One bucket holds all n entries, so get scans a list of length n.",
+      "source": "§3"
+    },
+    {
+      "id": "q4",
+      "prompt": "Every key hashes to bucket 0. What is the total cost of inserting n distinct keys?",
+      "choices": ["O(n)", "O(n log n)", "O(n²)", "O(2ⁿ)"],
+      "answer": 2,
+      "explanation": "Each set scans the bucket for the key first: 0 + 1 + … + (n−1), which is O(n²).",
+      "source": "§3"
+    },
+    {
+      "id": "q5",
+      "prompt": "After doubling the bucket array, why can't you copy each old bucket to the same index in the new array?",
+      "choices": [
+        "The new array is too small",
+        "hash(key) % capacity changes when capacity changes, so keys would be in the wrong bucket",
+        "Arrays can't be copied in TypeScript",
+        "It would break insertion order"
+      ],
+      "answer": 1,
+      "explanation": "The bucket index depends on capacity, so every entry has to be rehashed.",
+      "source": "§4"
+    },
+    {
+      "id": "q6",
+      "prompt": "A single resize is O(n). Why is insert still O(1) amortized when capacity doubles?",
+      "choices": [
+        "Resizes are skipped when the hash is good",
+        "The copies across all resizes form a geometric series that sums to less than 2n",
+        "Resizing happens on a background thread",
+        "Because the load factor is below 1"
+      ],
+      "answer": 1,
+      "explanation": "Copying 6 + 12 + 24 + … up to n entries totals under 2n, so n inserts cost O(n) overall.",
+      "source": "§5"
+    },
+    {
+      "id": "q7",
+      "prompt": "What happens to n inserts if capacity grows by a constant 8 buckets instead of doubling?",
+      "choices": ["Still O(n) total", "O(n log n) total", "O(n²) total", "It never resizes"],
+      "answer": 2,
+      "explanation": "A resize every 8 inserts, each copying everything so far: about n²/16 copies.",
+      "source": "§5"
+    },
+    {
+      "id": "q8",
+      "prompt": "You need to group words that are anagrams of each other. Which key works?",
+      "choices": [
+        "The word's length",
+        "The word's first letter",
+        "The word's letters, sorted",
+        "The set of distinct letters in the word"
+      ],
+      "answer": 2,
+      "explanation": "Sorted letters are identical exactly for anagrams. Distinct letters fail on 'aab' vs 'abb'.",
+      "source": "§6.2"
+    },
+    {
+      "id": "q9",
+      "prompt": "For pair-sum in one pass, what do you store in the map as you walk the array?",
+      "choices": [
+        "Each value → its index, then look up target − value",
+        "Each index → its value, then look up target",
+        "Each pair's sum → the pair",
+        "Nothing; sort the array instead"
+      ],
+      "answer": 0,
+      "explanation": "Looking up the complement among values already seen finds the partner in O(1).",
+      "source": "§6.3"
+    },
+    {
+      "id": "q10",
+      "prompt": "Longest consecutive run: why is the 'count up from each run start' approach O(n), not O(n²)?",
+      "choices": [
+        "Because the input is sorted first",
+        "Because you only count up from x when x − 1 is absent, so each number is visited by one run",
+        "Because hash lookups are O(1)",
+        "Because runs are short on average"
+      ],
+      "answer": 1,
+      "explanation": "Only run starts begin a count, and runs don't overlap, so the inner loop totals n steps.",
+      "source": "§6.5"
+    },
+    {
+      "id": "q11",
+      "prompt": "You insert 'Bulbasaur', 'Charmander', 'Squirtle' into your HashMap and iterate. What order do you get?",
+      "choices": [
+        "Always insertion order",
+        "Always alphabetical order",
+        "Bucket order, which depends on hashes and capacity",
+        "Reverse insertion order"
+      ],
+      "answer": 2,
+      "explanation": "Separate chaining iterates bucket by bucket. JS's built-in Map keeps insertion order; that's not part of the ADT.",
+      "source": "§7"
+    }
+  ]
+}
